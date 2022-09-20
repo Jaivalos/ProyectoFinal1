@@ -1,9 +1,16 @@
 package Views;
 
-public class FrmLogin extends javax.swing.JFrame {
+import Controllers.LoginControllers;
+import Models.Usuarios;
+import Models.UsuariosDao;
 
+public class FrmLogin extends javax.swing.JFrame {
+    Usuarios us = new Usuarios();
+    UsuariosDao usDao = new UsuariosDao();
+    
     public FrmLogin() {
         initComponents();
+        LoginControllers users = new LoginControllers(us, usDao, this);
     }
 
     /**
@@ -18,11 +25,11 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtuser = new javax.swing.JTextField();
+        txtclave = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnlogin = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -38,19 +45,19 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Password");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 100, -1));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 100, -1));
+        jPanel1.add(txtuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 100, -1));
+        jPanel1.add(txtclave, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 100, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 16, 400, 42));
 
-        jButton1.setText("Login");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        btnlogin.setText("Login");
+        jPanel1.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        jButton2.setText("Exit");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
+        btncancelar.setText("Exit");
+        jPanel1.add(btncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
@@ -93,13 +100,13 @@ public class FrmLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton btncancelar;
+    public javax.swing.JButton btnlogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JPasswordField txtclave;
+    public javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
